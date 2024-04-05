@@ -21,6 +21,10 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 - Customize reusable components with cn()
 - Add pet buttons for CRUD-Actions
 - Add delete (checkout) functionality for a pet
+- Implement functionality to add and edit a pet
+- Add Shadcn UI dialog
+- Add Shadcn Input + Label + Textarea elements
+- Omit elements in type
 
 ## Install Next.js
 
@@ -33,6 +37,8 @@ npx create-next-app@14.1.0 .
 ```bash
 npx shadcn-ui@0.8.0 init
 npx shadcn-ui@0.8.0 add button
+npx shadcn-ui@0.8.0 add dialog
+npx shadcn-ui@0.8.0 add label input textarea
 ```
 
 ## Other Learnings
