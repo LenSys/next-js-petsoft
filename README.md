@@ -9,12 +9,20 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 
 ## Learnings
 
--
+- Route groups (folder with parenthesis)
+- Add Shadcn UI
 
 ## Install Next.js
 
 ```bash
 npx create-next-app@14.1.0 .
+```
+
+## Install Shadcn UI
+
+```bash
+npx shadcn-ui@0.8.0 init
+npx shadcn-ui@0.8.0 add button
 ```
 
 ## Other Learnings
