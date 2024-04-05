@@ -20,6 +20,7 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 - Create account page
 - Customize reusable components with cn()
 - Add pet buttons for CRUD-Actions
+- Add delete (checkout) functionality for a pet
 
 ## Install Next.js
 
