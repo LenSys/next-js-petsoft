@@ -26,6 +26,14 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 - Add Shadcn Input + Label + Textarea elements
 - Omit elements in type
 - Prefill edit pet form
+- Add SQLite database and use Prisma ORM
+- Create a model in Prisma
+- Seed the database
+- Get data from database with Prisma instead of fetch API:
+
+```TS
+const pets = await prisma.pet.findMany();
+```
 
 ## Install Next.js
 
@@ -40,6 +48,31 @@ npx shadcn-ui@0.8.0 init
 npx shadcn-ui@0.8.0 add button
 npx shadcn-ui@0.8.0 add dialog
 npx shadcn-ui@0.8.0 add label input textarea
+```
+
+## Install Prisma
+
+```bash
+npm install typescript@5 ts-node@10.9.1 @types/node@20 --save-dev
+npm install prisma@5.8.1 --save-dev
+```
+
+## Create a database
+
+```bash
+npx prisma init --datasource-provider sqlite
+```
+
+## Create a table in the database
+
+```bash
+npx prisma db push
+```
+
+## Seed the database
+
+```bash
+npx prisma db seed
 ```
 
 ## Other Learnings

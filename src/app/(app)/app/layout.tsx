@@ -3,7 +3,8 @@ import AppHeader from "@/components/app-header";
 import BackgroundPattern from "@/components/background-pattern";
 import PetContextProvider from "@/contexts/pet-context-provider";
 import SearchContextProvider from "@/contexts/search-context-provider";
-import { TPet } from "@/lib/types";
+// import { TPet } from "@/lib/types";
+import prisma from "@/lib/db";
 
 const petsUrl = "https://bytegrad.com/course-assets/projects/petsoft/api/pets";
 
@@ -12,13 +13,15 @@ type LayoutProps = {
 };
 
 export default async function Layout({ children }: LayoutProps) {
-  const response = await fetch(petsUrl);
+  // const response = await fetch(petsUrl);
 
-  if (!response.ok) {
-    throw new Error("Could not fetch pets");
-  }
+  // if (!response.ok) {
+  //   throw new Error("Could not fetch pets");
+  // }
 
-  const pets: TPet[] = await response.json();
+  // const pets: TPet[] = await response.json();
+
+  const pets = await prisma.pet.findMany();
 
   return (
     <>
