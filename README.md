@@ -11,6 +11,7 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 
 - Route groups (folder with parenthesis)
 - Add Shadcn UI
+- Nested Layout for specific routes
 
 ## Install Next.js
 
