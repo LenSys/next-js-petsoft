@@ -17,6 +17,8 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 - Use Context API for pets
 - When using ContextProvider (as client), the wrapped components do not automatically become client components as well, because the children pattern is used -> a server component only becomes a client components if we import it!
 - Add search pet feature
+- Create account page
+- Customize reusable components with cn()
 
 ## Install Next.js
 
