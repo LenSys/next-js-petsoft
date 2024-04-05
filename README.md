@@ -25,6 +25,7 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 - Add Shadcn UI dialog
 - Add Shadcn Input + Label + Textarea elements
 - Omit elements in type
+- Prefill edit pet form
 
 ## Install Next.js
 
