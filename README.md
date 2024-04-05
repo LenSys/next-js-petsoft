@@ -19,6 +19,7 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 - Add search pet feature
 - Create account page
 - Customize reusable components with cn()
+- Add pet buttons for CRUD-Actions
 
 ## Install Next.js
 
