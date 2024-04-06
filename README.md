@@ -42,6 +42,10 @@ const pets = await prisma.pet.findMany();
 - useOptimistic for Optimistic UI -> remove loading state
 - flushSync(): force update of state immediately
 - Prisma types: create types from Prisma model
+- Add React-Hook-Form with validation
+- Add validation with Zod
+- Infer TypeScript Type from Zod
+- Use Zod Schema for client + server validation
 
 ## Install Next.js
 
@@ -82,6 +86,19 @@ npx prisma db push
 
 ```bash
 npx prisma db seed
+```
+
+## Install React-Hook-Form
+
+```bash
+npm install react-hook-form@7.47.0
+```
+
+## Install Zod
+
+```bash
+npm install zod@3.22.4
+npm install @hookform/resolvers@3.3.2
 ```
 
 ## Other Learnings
