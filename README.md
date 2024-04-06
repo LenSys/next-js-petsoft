@@ -35,6 +35,11 @@ https://bytegrad.com/app/professional-react-and-nextjs/
 const pets = await prisma.pet.findMany();
 ```
 
+- Use action on form instead of onSubmit: server actions (progressive enhancement)
+- Add revalidatePath in server actions to update the UI
+- Add loading state for server actions
+- Use sonner toast (Shadcn UI) for error state messages
+
 ## Install Next.js
 
 ```bash
@@ -48,6 +53,7 @@ npx shadcn-ui@0.8.0 init
 npx shadcn-ui@0.8.0 add button
 npx shadcn-ui@0.8.0 add dialog
 npx shadcn-ui@0.8.0 add label input textarea
+npx shadcn-ui@0.8.0 add sonner
 ```
 
 ## Install Prisma

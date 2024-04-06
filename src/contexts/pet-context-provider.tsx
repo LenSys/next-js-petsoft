@@ -1,5 +1,6 @@
 "use client";
 
+import { addPet } from "@/actions/actions";
 import { TPet } from "@/lib/types";
 import { createContext, useState } from "react";
 
@@ -23,10 +24,10 @@ export const PetContext = createContext<TPetContext | null>(null);
 
 export default function PetContextProvider({
   children,
-  data,
+  data: pets,
 }: PetContextProviderProps) {
   // state
-  const [pets, setPets] = useState<TPet[]>(data);
+  // const [pets, setPets] = useState<TPet[]>(data);
   const [selectedPetId, setSelectedPetId] = useState<string | null>(null);
 
   // derived state
@@ -34,26 +35,28 @@ export default function PetContextProvider({
   const numberOfPets = pets.length;
 
   // event handlers / actions
-  const handleAddPet = (newPet: Omit<TPet, "id">) => {
-    const newPetId = Date.now().toString();
+  const handleAddPet = async (newPet: Omit<TPet, "id">) => {
+    // const newPetId = Date.now().toString();
 
-    setPets((prev) => [...prev, { ...newPet, id: newPetId }]);
-    setSelectedPetId(newPetId);
+    // setPets((prev) => [...prev, { ...newPet, id: newPetId }]);
+    // setSelectedPetId(newPetId);
+
+    await addPet(newPet);
   };
 
   const handleEditPet = (petId: string, newPetData: Omit<TPet, "id">) => {
-    setPets((prev) =>
-      prev.map((pet) => {
-        if (pet.id === petId) {
-          return {
-            id: petId,
-            ...newPetData,
-          };
-        } else {
-          return pet;
-        }
-      })
-    );
+    // setPets((prev) =>
+    //   prev.map((pet) => {
+    //     if (pet.id === petId) {
+    //       return {
+    //         id: petId,
+    //         ...newPetData,
+    //       };
+    //     } else {
+    //       return pet;
+    //     }
+    //   })
+    // );
   };
 
   const handleChangeSelectedPetId = (petId: string) => {
@@ -61,8 +64,8 @@ export default function PetContextProvider({
   };
 
   const handleCheckoutPet = (petId: string) => {
-    setPets((prev) => prev.filter((pet) => pet.id !== petId));
-    setSelectedPetId(null);
+    // setPets((prev) => prev.filter((pet) => pet.id !== petId));
+    // setSelectedPetId(null);
   };
 
   return (
