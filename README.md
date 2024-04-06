@@ -39,6 +39,9 @@ const pets = await prisma.pet.findMany();
 - Add revalidatePath in server actions to update the UI
 - Add loading state for server actions
 - Use sonner toast (Shadcn UI) for error state messages
+- useOptimistic for Optimistic UI -> remove loading state
+- flushSync(): force update of state immediately
+- Prisma types: create types from Prisma model
 
 ## Install Next.js
 

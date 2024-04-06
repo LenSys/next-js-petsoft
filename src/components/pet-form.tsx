@@ -1,14 +1,10 @@
 "use client";
 
 import { usePetContext } from "@/lib/hooks";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
-import { TPet } from "@/lib/types";
-import { addPet, editPet } from "@/actions/actions";
 import PetFormBtn from "./pet-form-btn";
-import { toast } from "sonner";
 
 type PetFormProps = {
   actionType: "add" | "edit";
@@ -16,7 +12,7 @@ type PetFormProps = {
 };
 
 export default function PetForm({ actionType, onFormSubmit }: PetFormProps) {
-  const { selectedPet } = usePetContext();
+  const { handleAddPet, handleEditPet, selectedPet } = usePetContext();
   // const { handleAddPet, handleEditPet, selectedPet } = usePetContext();
 
   //   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -45,23 +41,24 @@ export default function PetForm({ actionType, onFormSubmit }: PetFormProps) {
   return (
     <form
       action={async (formData) => {
-        if (actionType === "add") {
-          const error = await addPet(formData);
-
-          if (error) {
-            toast.warning(error.message);
-            return;
-          }
-        } else if (actionType === "edit") {
-          const error = await editPet(selectedPet?.id, formData);
-
-          if (error) {
-            toast.warning(error.message);
-            return;
-          }
-        }
-
+        // close form dialog before adding or editing the pet -> optimistic UI
         onFormSubmit();
+
+        const petData = {
+          name: formData.get("name") as string,
+          ownerName: formData.get("ownerName") as string,
+          imageUrl:
+            (formData.get("imageUrl") as string) ||
+            "https://bytegrad.com/course-assets/react-nextjs/pet-placeholder.png",
+          age: Number(formData.get("age")),
+          notes: formData.get("notes") as string,
+        };
+
+        if (actionType === "add") {
+          await handleAddPet(petData);
+        } else if (actionType === "edit") {
+          await handleEditPet(selectedPet!.id, petData);
+        }
       }}
       className="space-y-3 flex flex-col"
     >
